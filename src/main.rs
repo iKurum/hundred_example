@@ -1,3 +1,5 @@
 mod utils;
 
-fn main() {}
+fn main() {
+  utils::c010::test();
+}
