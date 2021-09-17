@@ -1,5 +1,5 @@
-mod c10;
+mod c0;
 
 fn main() {
-  c10::c010::test();
+  c0::c010::test();
 }
