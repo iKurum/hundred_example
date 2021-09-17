@@ -1,5 +1,5 @@
-mod utils;
+mod c10;
 
 fn main() {
-  utils::c010::test();
+  c10::c010::test();
 }
