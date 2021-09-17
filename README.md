@@ -1,1 +1,1 @@
-#### [C 语言经典100例 | 菜鸟教程](https://www.runoob.com/cprogramming/c-100-examples.html)
+#### rust写[C 语言经典100例 | 菜鸟教程](https://www.runoob.com/cprogramming/c-100-examples.html)
