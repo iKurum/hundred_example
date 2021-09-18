@@ -24,16 +24,13 @@
 pub fn test() -> Result<(isize, isize), ()> {
   let mut nums = String::new();
   println!("请输入两个数，以空格分隔");
-  std::io::stdin().read_line(&mut nums).unwrap();
+  std::io::stdin().read_line(&mut nums).expect("读取输入错误");
   let mut nums = nums
     .replace("\r\n", "")
     .split_whitespace()
-    .collect::<Vec<&str>>()
-    .iter()
-    .map(|x| x.parse::<isize>().unwrap())
+    .map(|x| x.parse::<isize>().expect("输入非数字"))
     .collect::<Vec<isize>>();
   nums.sort_by(|a, b| b.cmp(a));
-  
   if nums.len() == 2 {
     let mut r = nums[0] % nums[1];
     let n = nums[0] * nums[1];
@@ -42,7 +39,11 @@ pub fn test() -> Result<(isize, isize), ()> {
       nums[1] = r;
       r = nums[0] % nums[1];
     }
-    println!("这两个数的最大公约数是{}，最小公倍数是{}", nums[1], n / nums[1]);
+    println!(
+      "这两个数的最大公约数是{}，最小公倍数是{}",
+      nums[1],
+      n / nums[1]
+    );
     Ok((nums[1], n / nums[1]))
   } else {
     println!("请输入两个数，以空格分隔");

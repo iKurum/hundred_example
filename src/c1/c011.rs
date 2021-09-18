@@ -4,8 +4,13 @@
 pub fn test() -> usize {
   let mut month = String::new();
   println!("请输入检查多少个月:");
-  std::io::stdin().read_line(&mut month).unwrap();
-  let month = month.replace("\r\n", "").parse::<i32>().unwrap();
+  std::io::stdin()
+    .read_line(&mut month)
+    .expect("读取输入错误");
+  let month = month
+    .replace("\r\n", "")
+    .parse::<i32>()
+    .expect("输入非数字");
   let (mut size, mut f1, mut f2) = (2, 1, 1);
 
   println!("前两个月不生产，总数为 2");

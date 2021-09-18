@@ -4,8 +4,13 @@
 pub fn test() -> char {
   let mut score = String::new();
   println!("请输入分数:");
-  std::io::stdin().read_line(&mut score).unwrap();
-  let score = score.replace("\r\n", "").parse::<i32>().unwrap();
+  std::io::stdin()
+    .read_line(&mut score)
+    .expect("读取输入错误");
+  let score = score
+    .replace("\r\n", "")
+    .parse::<i32>()
+    .expect("输入非数字");
 
   let res = if score >= 90 {
     'A'

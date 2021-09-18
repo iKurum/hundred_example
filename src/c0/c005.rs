@@ -4,13 +4,11 @@
 pub fn test() -> Vec<isize> {
   let mut nums = String::new();
   println!("请输入整数，以空格分隔:");
-  std::io::stdin().read_line(&mut nums).unwrap();
+  std::io::stdin().read_line(&mut nums).expect("读取输入错误");
   let mut nums = nums
     .replace("\r\n", "")
     .split_whitespace()
-    .collect::<Vec<&str>>()
-    .iter()
-    .map(|x| x.parse::<isize>().unwrap())
+    .map(|x| x.parse::<isize>().expect("输入数字错误"))
     .collect::<Vec<isize>>();
   nums.sort_by(|a, b| a.cmp(&b));
 

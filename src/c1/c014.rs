@@ -8,8 +8,11 @@ pub fn test() -> Vec<i32> {
   let mut res: Vec<i32> = Vec::new();
   let mut num = String::new();
   println!("请输入整数:");
-  std::io::stdin().read_line(&mut num).unwrap();
-  let mut num = num.replace("\r\n", "").parse::<isize>().unwrap();
+  std::io::stdin().read_line(&mut num).expect("读取输入错误");
+  let mut num = num
+    .replace("\r\n", "")
+    .parse::<isize>()
+    .expect("输入非数字");
   let n = num;
   for i in 2..(num + 1) {
     while num % i == 0 {
@@ -30,6 +33,5 @@ pub fn test() -> Vec<i32> {
 
     println!("{}={}", n, r);
   }
-  
   res
 }

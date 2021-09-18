@@ -9,8 +9,6 @@ pub fn test() -> Result<usize, String> {
   let mut s = s
     .replace("\r\n", "")
     .split_whitespace()
-    .collect::<Vec<&str>>()
-    .iter()
     .map(|x| x.parse::<usize>().expect("输入的数字有误"))
     .collect::<Vec<usize>>();
 

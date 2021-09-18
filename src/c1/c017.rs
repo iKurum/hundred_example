@@ -4,13 +4,11 @@
 pub fn test() -> Result<Vec<i32>, ()> {
   let mut s = String::new();
   println!("请输入一些字符:");
-  std::io::stdin().read_line(&mut s).unwrap();
+  std::io::stdin().read_line(&mut s).expect("读取输入错误");
   let s = s
     .replace("\r\n", "")
     .chars()
-    .collect::<Vec<char>>()
-    .iter()
-    .map(|x| *x as u32)
+    .map(|x| x as u32)
     .collect::<Vec<u32>>();
 
   let (mut letters, mut spaces, mut digits, mut others) = (0, 0, 0, 0);
