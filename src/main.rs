@@ -1,5 +1,6 @@
 mod c0;
+mod c1;
 
 fn main() {
-  c0::c010::test();
+  println!("{:?}", c1::c020::test());
 }
